@@ -42,6 +42,7 @@
         android:layout_width="190dp"
         android:layout_height="190dp"
         app:cardCornerRadius="100dp">
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"

@@ -2,7 +2,10 @@ package com.ronald.viewpeople_viewbinding
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import com.ronald.viewpeople_viewbinding.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var  binding:ActivityMainBinding
@@ -13,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         val initialPeople = Person("Ronald Otieno",R.drawable.ronald, "Software Engineer")
         displayPeople(initialPeople)
 
@@ -34,10 +38,15 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+
+        binding.imageView.setOnClickListener {
+            Toast.makeText(applicationContext, "Clicked", Toast.LENGTH_LONG).show()
+
+        }
     }
 
 
-    private fun displayPeople(person: Person){
+     fun displayPeople(person: Person){
         binding.tvName.text = person.name
         binding.imageView.setImageResource(person.image)
         binding.tvCareer.text = person.career
